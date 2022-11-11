@@ -433,15 +433,221 @@ void exercicioDezessete()
 
 void exercicioDezoito()
 {
+	double valor;
+	int n100 = 0, n50 = 0, n20 = 0, n10 = 0, n5 = 0, n1 = 0,
+	m50 = 0, m25 = 0, m10 = 0, m5 = 0, m01 = 0;
 
+	printf("Valor Monetario: ");
+	scanf("%lf", &valor);
 
+	if ( valor / 100 >= 1 )
+	{
+		do
+		{
 
+			n100 = n100 + 1;
+			valor = valor - 100;
+
+		} while (valor / 100 >= 1 );	
+
+	}
+	if ( valor / 50 >= 1 )
+	{
+		do
+		{	
+
+			n50 = n50 + 1;
+			valor = valor - 50;
+
+		} while ( valor / 50 >= 1 );
+			
+	}
+	if ( valor / 20 >= 1 )
+	{
+		do
+		{
+			
+			n20 = n20 + 1;
+			valor = valor - 20;
+
+		} while ( valor / 20 >= 1);
+		
+	}
+	if ( valor / 10  >= 1 )
+	{
+		do
+		{
+			
+			n10 = n10 + 1;
+			valor = valor - 10;
+
+		} while ( valor / 10  >= 1 );
+		
+	}
+
+	//VALORES ABAIXO DE 10:
+
+	if ( valor < 10 && valor >=1 )
+	{
+		do
+		{
+			n1 = n1 + 1;
+			valor = valor - 1;
+
+		} while ( valor < 10 && valor >=1 );
+		
+	}
+	
+	if ( valor < 1 && valor >= 0.50 )
+	{
+		do
+		{
+			m50 = m50 + 1;
+			valor = valor - 0.50;
+		} while ( valor < 1 && valor >= 0.50 );
+	
+	}
+
+	if ( valor < 0.5 && valor >= 0.25 )
+	{
+		do
+		{
+			m25 = m25 + 1;
+			valor = valor - 0.25;
+		} while ( valor < 0.5 && valor >= 0.25 );
+	
+	}
+
+	if ( valor < 0.25 && valor >= 0.10 )
+	{
+		do
+		{
+			m10 = m10 + 1;
+			valor = valor - 0.10;
+		} while ( valor < 0.25 && valor >= 0.10 );
+	
+	}
+	
+	if ( valor < 0.10 && valor >= 0.05 )
+	{
+		do
+		{
+			m5 = m5 + 1;
+			valor = valor - 0.05;
+		} while ( valor < 0.10 && valor >= 0.05 );
+	
+	}
+
+	if ( valor < 0.05 && valor >= 0.01 )
+	{
+		do
+		{
+			m01 = m01 + 1;
+			valor = valor - 0.01;
+		} while ( valor < 0.05 && valor > 0.0 );
+	
+	}
+	
+	
+	
+
+	printf("Notas de 100: %d\nNotas de 50: %d\nNotas de 20: %d\nNotas de 10: %d\nMoedas de 1: %d\nMoedas de 0.50: %d\nMoedas de 0.25: %d\nMoedas de 0.10: %d\nMoedas de 0.05: %d\nMoedas de 0.01: %d" 
+	,n100, n50, n20, n10, 
+	n1, m50, m25, m10, m5, m01);
+
+}
+
+void exercicioDezenove()
+{
+	float N1, N2, N3 ,N4, nExame, media, mFinal;
+	int exame = 0;
+
+	printf("Nota 1, Nota 2, Nota 3 e Nota 4, respectivamente: \n");
+	scanf("%f%f%f%f", &N1, &N2, &N3, &N4);
+	N1 = N1 * 2; N2 = N2 * 3; N3 = N3 * 4; N4 = N4 * 1;
+	media = (N1 + N2 + N3 + N4) / 10;
+	printf ("Media: %.1f\n", media);
+	if ( media >= 7.0 )
+	{
+		printf("Aluno aprovado.");
+	} 
+	if ( media <= 4.9 )
+	{
+		printf("Aluno reprovado.");
+	}
+	if ( media >= 5 && media < 7 )
+	{
+		printf("Aluno em exame.");
+		exame = 1;
+	}
+	
+	if ( exame == 1 )
+	{
+		printf("\nNota Obtida: ");
+		scanf("%f", &nExame);
+		printf("\nNota do Exame: %.1f ", nExame);
+		mFinal = ( media + nExame ) / 2; 
+
+		if ( mFinal >= 5 )
+		{
+			printf("\n\nAluno aprovado.");
+
+		} else 
+		{
+			printf("\n\nAluno reprovado.");
+		}
+	}
+	
+	
+	
+}
+
+void exercicioVinte()
+{
+	int cA, cB, cC, delta, x1, x2;
+
+	printf("ax2 + bx + c = 0 \n");
+	printf("a = "); scanf("%d", &cA);
+	printf("b = "); scanf("%d", &cB);
+	printf("c = "); scanf("%d", &cC);
+
+	system("cls");
+
+	printf("%dx2 + %dx + %d = 0 \n", cA, cB, cC);
+
+	if ( cA != 0 )
+	{
+		delta = pow(cA, 2) - 4 * cA * cC ;
+		if ( delta < 0 )
+		{
+			printf("Nao existe raiz.");
+		}
+		else if ( delta == 0 )
+		{	
+			x1 = -cB / (2 * cA);
+			printf("Raiz unica.\nx: %d", x1);	
+		}
+
+		else if ( delta > 0 ) 
+		{
+			x1 = (-cB + sqrt(delta)) / (2 * cA);
+			x2 = (-cB - sqrt(delta)) / (2 * cA);
+			printf("x1: %d\nx2: %d", x1 , x2 );
+		}			
+	}		
+
+		
+	else
+	{
+		printf("Nao eh equacao de 2 grau.");
+	}
+	
 
 }
 
 
 int main()
 {
-	exercicioDezoito();
+	exercicioVinte();	
 	return 0;
 }
